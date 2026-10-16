@@ -1,17 +1,31 @@
 {
-  "name": "scaffold-tmp",
+  "name": "document-vault",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "typecheck": "NODE_OPTIONS=--max-old-space-size=4096 tsc --noEmit",
+    "db:start": "\"$HOME/.mongodb/bin/mongod\" --dbpath \"$HOME/.mongodb/data\" --bind_ip 127.0.0.1 --port 27017 --logpath \"$HOME/.mongodb/logs/mongod.log\" --fork",
+    "db:stop": "pkill -TERM -f \"$HOME/.mongodb/bin/mongod\" && echo \"mongod stopping\" || echo \"mongod not running\"",
+    "db:status": "pgrep -fl \"[m]ongod\" || echo \"mongod not running\""
   },
   "dependencies": {
+    "@rainbow-me/rainbowkit": "^2.2.11",
+    "@tanstack/react-query": "^5.104.1",
+    "@x402/core": "^2.28.0",
+    "@x402/evm": "^2.28.0",
+    "@x402/svm": "^2.28.0",
+    "mongoose": "^9.10.4",
     "next": "16.3.8",
+    "pinata": "^2.5.6",
     "react": "19.2.8",
-    "react-dom": "19.2.8"
+    "react-dom": "19.2.8",
+    "viem": "^2.57.3",
+    "wagmi": "^2.19.5",
+    "zod": "^4.6.5"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
